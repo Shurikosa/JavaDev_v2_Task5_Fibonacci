@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+:Check if(input < 0);
+if (yes) then (true)
+  :Throw IllegalArgumentException;
+  else (no)
+  :Check if(input <= 1);
+  if (yes) then (true)
+  :return input;
+  else(no)
+  :prev = 0;
+  :next = 1;
+  :current;
+  while (input > 0)
+    :next = prev + current;
+    :prev = current;
+    :current = next;
+    :input --;
+  endwhile
+    :return prev;
+    endif
+endif
+stop
+
+@enduml

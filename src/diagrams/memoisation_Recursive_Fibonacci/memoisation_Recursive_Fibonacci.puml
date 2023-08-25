@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+ :Check if(input < 0);
+ if (yes) then (true)
+    :Throw IllegalArgumentException;
+   else (no)
+    :Check if(input <= 1);
+   if (yes) then (true)
+    :return input;
+   else(no)
+   :create cache;
+     :check is cache includes input;
+        if(yes) then (true)
+        :return cache[input]
+     else(no)
+        :fibonacciNumber = findFibonacci(input - 1) + findFibonacci(input - 2);
+        :cache[input]= fibonacciNumber;
+        :return fibonacciNumber;
+     endif
+ endif
+ endif
+ stop
+
+ @enduml

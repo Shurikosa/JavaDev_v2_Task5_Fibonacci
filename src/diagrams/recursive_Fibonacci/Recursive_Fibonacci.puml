@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+:Check if(input < 0);
+if (yes) then (true)
+  :Throw IllegalArgumentException;
+  else (no)
+  :Check if(input <= 1);
+  if (yes) then (true)
+  :return input;
+  else(no)
+    :return findFibonacci(input - 1) + findFibonacci(input - 2);
+    endif
+endif
+stop
+
+@enduml
